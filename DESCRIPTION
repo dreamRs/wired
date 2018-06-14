@@ -1,0 +1,14 @@
+Package: wired
+Version: 0.0.0.9000
+Title: Wired Elements in Shiny
+Description: UI Elements that have a hand drawn look for Shiny application.
+Authors@R: c(
+  person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
+  person("Fanny", "Meyer", email = "fanny.meyer@dreamrs.fr", role = c("aut")),
+  person("Preet", "Shihn", role = c("cph"), comment = "wired library"))
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+ByteCompile: true
+Imports: 
+    htmltools
