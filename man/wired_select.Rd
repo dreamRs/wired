@@ -25,7 +25,27 @@ Wired Select Box
 
 if (interactive()) {
 
+library(shiny)
+library(wired)
 
+ui <- fluidPage(
+  wired_select(
+    inputId = "slct",
+    label = "Select",
+    choices = c("Normal",
+                "Uniform",
+                "Exponential")
+  ),
+  verbatimTextOutput(outputId = "res")
+)
+
+server <- function(input, output, session) {
+
+  output$res <- renderPrint(input$slct)
+
+}
+
+shinyApp(ui, server)
 
 }
 

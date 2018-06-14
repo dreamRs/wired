@@ -16,7 +16,25 @@
 #'
 #' if (interactive()) {
 #'
+#' library(shiny)
+#' library(wired)
 #'
+#' ui <- fluidPage(
+#'   wired_button(
+#'     inputId = "go",
+#'     label = "GO!"
+#'   ),
+#'   tags$br(),
+#'   verbatimTextOutput(outputId = "res")
+#' )
+#'
+#' server <- function(input, output, session) {
+#'
+#'   output$res <- renderPrint(input$go)
+#'
+#' }
+#'
+#' shinyApp(ui, server)
 #'
 #' }
 #'
@@ -48,7 +66,24 @@ wired_button <- function(inputId, label = NULL, icon = NULL, width = NULL, ...) 
 #'
 #' if (interactive()) {
 #'
+#' library(shiny)
+#' library(wired)
 #'
+#' ui <- fluidPage(
+#'   wired_checkbox(
+#'     inputId = "chck",
+#'     label = "Single checkbox"
+#'   ),
+#'   verbatimTextOutput(outputId = "res")
+#' )
+#'
+#' server <- function(input, output, session) {
+#'
+#'   output$res <- renderPrint(input$chck)
+#'
+#' }
+#'
+#' shinyApp(ui, server)
 #'
 #' }
 #'
@@ -84,7 +119,27 @@ wired_checkbox <- function(inputId, label, value = FALSE, width = NULL) {
 #'
 #' if (interactive()) {
 #'
+#' library(shiny)
+#' library(wired)
 #'
+#' ui <- fluidPage(
+#'   wired_select(
+#'     inputId = "slct",
+#'     label = "Select",
+#'     choices = c("Normal",
+#'                 "Uniform",
+#'                 "Exponential")
+#'   ),
+#'   verbatimTextOutput(outputId = "res")
+#' )
+#'
+#' server <- function(input, output, session) {
+#'
+#'   output$res <- renderPrint(input$slct)
+#'
+#' }
+#'
+#' shinyApp(ui, server)
 #'
 #' }
 #'
@@ -131,7 +186,28 @@ wired_select <- function(inputId, label, choices, selected = NULL, width = NULL)
 #'
 #' if (interactive()) {
 #'
+#' library(shiny)
+#' library(wired)
 #'
+#' ui <- fluidPage(
+#'   wired_slider(
+#'     inputId = "sldr",
+#'     label = "Slider:",
+#'     min = 10,
+#'     max = 60,
+#'     value = 30,
+#'     radius = 10
+#'   ),
+#'   verbatimTextOutput(outputId = "res")
+#' )
+#'
+#' server <- function(input, output, session) {
+#'
+#'   output$res <- renderPrint(input$sldr)
+#'
+#' }
+#'
+#' shinyApp(ui, server)
 #'
 #' }
 #'
@@ -166,7 +242,27 @@ wired_slider <- function(inputId, label = NULL, value = 10, min = 0, max = 100, 
 #'
 #' if (interactive()) {
 #'
+#' library(shiny)
+#' library(wired)
 #'
+#' ui <- fluidPage(
+#'   wired_radio(
+#'     inputId = "radi", label = "Radio buttons:",
+#'     choices = c("Normal" = "norm",
+#'                 "Uniform" = "unif",
+#'                 "Log-normal" = "lnorm",
+#'                 "Exponential" = "exp")
+#'   ),
+#'   verbatimTextOutput(outputId = "res")
+#' )
+#'
+#' server <- function(input, output, session) {
+#'
+#'   output$res <- renderPrint(input$radi)
+#'
+#' }
+#'
+#' shinyApp(ui, server)
 #'
 #' }
 #'
@@ -210,7 +306,24 @@ wired_radio <- function(inputId, label, choices, selected = NULL, width = NULL) 
 #'
 #' if (interactive()) {
 #'
+#' library(shiny)
+#' library(wired)
 #'
+#' ui <- fluidPage(
+#'   wired_toggle(
+#'     inputId = "tggl",
+#'     label = "Toggle:"
+#'   ),
+#'   verbatimTextOutput(outputId = "res")
+#' )
+#'
+#' server <- function(input, output, session) {
+#'
+#'   output$res <- renderPrint(input$tggl)
+#'
+#' }
+#'
+#' shinyApp(ui, server)
 #'
 #' }
 #'
@@ -245,7 +358,25 @@ wired_toggle <- function(inputId, label, value = FALSE, width = NULL) {
 #'
 #' if (interactive()) {
 #'
+#' library(shiny)
+#' library(wired)
 #'
+#' ui <- fluidPage(
+#'   wired_text(
+#'     inputId = "txt",
+#'     label = "Text:",
+#'     placeholder = "Write something!"
+#'   ),
+#'   verbatimTextOutput(outputId = "res")
+#' )
+#'
+#' server <- function(input, output, session) {
+#'
+#'   output$res <- renderPrint(input$txt)
+#'
+#' }
+#'
+#' shinyApp(ui, server)
 #'
 #' }
 #'
@@ -259,7 +390,7 @@ wired_text <- function(inputId, label = NULL, placeholder = NULL, width = NULL) 
   tag <- tags$div(
     class = "form-group shiny-input-container",
     style = if (!is.null(width)) paste0("width: ", validateCssUnit(width), ";"),
-    if (!is.null(label)) tags$label(label, `for` = inputId),
+    if (!is.null(label)) tags$label(label, `for` = inputId), tags$br(),
     txtTag
   )
   wired_dependencies(tag)

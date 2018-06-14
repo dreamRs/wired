@@ -13,7 +13,35 @@
 #'
 #' if (interactive()) {
 #'
+#' library(shiny)
+#' library(wired)
 #'
+#' ui <- fluidPage(
+#'   fluidRow(
+#'     column(
+#'       width = 4,
+#'       wired_card("Simple card")
+#'     ),
+#'     column(
+#'       width = 4,
+#'       wired_card(
+#'         "Another one with a plot!",
+#'         plotOutput(outputId = "plot"),
+#'         elevation = 5, width = "100%"
+#'       )
+#'     )
+#'   )
+#' )
+#'
+#' server <- function(input, output, session) {
+#'
+#'   output$plot <- renderPlot({
+#'     plot(sin(seq(-pi, pi, length.out = 100)), type = "l")
+#'   })
+#'
+#' }
+#'
+#' shinyApp(ui, server)
 #'
 #' }
 #'

@@ -30,7 +30,28 @@ Wired Slider
 
 if (interactive()) {
 
+library(shiny)
+library(wired)
 
+ui <- fluidPage(
+  wired_slider(
+    inputId = "sldr",
+    label = "Slider:",
+    min = 10,
+    max = 60,
+    value = 30,
+    radius = 10
+  ),
+  verbatimTextOutput(outputId = "res")
+)
+
+server <- function(input, output, session) {
+
+  output$res <- renderPrint(input$sldr)
+
+}
+
+shinyApp(ui, server)
 
 }
 

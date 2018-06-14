@@ -25,7 +25,25 @@ Wired Action button
 
 if (interactive()) {
 
+library(shiny)
+library(wired)
 
+ui <- fluidPage(
+  wired_button(
+    inputId = "go",
+    label = "GO!"
+  ),
+  tags$br(),
+  verbatimTextOutput(outputId = "res")
+)
+
+server <- function(input, output, session) {
+
+  output$res <- renderPrint(input$go)
+
+}
+
+shinyApp(ui, server)
 
 }
 
