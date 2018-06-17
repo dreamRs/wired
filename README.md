@@ -5,7 +5,7 @@
 [![Travis build status](https://travis-ci.org/dreamRs/wired.svg?branch=master)](https://travis-ci.org/dreamRs/wired)
 
 
-:exclamation: Doesn't work in RStudio viewer, use your default browser :exclamation:
+:warning: Doesn't work in RStudio viewer, use your default browser :warning:
 
 
 ## Installation
@@ -117,18 +117,21 @@ Widgets available:
 * slider
 * select box
 * text input
-* radio buttns
+* radio buttons
 * toggle switch
 * cards
+* icon button
+* tooltip
 
 Not yet implemented:
 
-* icon button
 * list box
 * progress bars
 * text area
-* tooltip
 
+To do:
+
+* update methods
 
 
 

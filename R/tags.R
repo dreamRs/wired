@@ -34,3 +34,11 @@ tagw$toggle <- function(...) {
 tagw$input <- function(...) {
   htmltools::tag("wired-input", list(...))
 }
+tagw$icon_button <- function(...) {
+  htmltools::tag("wired-icon-button", list(...))
+}
+tagw$tooltip <- function(...) {
+  htmltools::tag("wired-tooltip", list(...))
+}
+
+

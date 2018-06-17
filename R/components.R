@@ -57,3 +57,76 @@ wired_card <- function(..., elevation = 2, padding = 10, width = NULL) {
   wired_dependencies(tag)
 }
 
+
+
+
+#' @title Wired Tooltip
+#'
+#' @description Tooltip with text that appears on hover over an element.
+#'
+#' @param id Id of the element the tooltip is for.
+#' @param text Text in the tooltip.
+#' @param position Postion where tolltip will appear.
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#' if (interactive()) {
+#'
+#' library(shiny)
+#' library(wired)
+#'
+#' ui <- fluidPage(
+#'   fluidRow(
+#'     column(
+#'       width = 4,
+#'       wired_slider(
+#'         inputId = "n",
+#'         label = "Number of obs. :",
+#'         min = 50, value = 100, max = 300,
+#'         radius = 10
+#'       ),
+#'       wired_tooltip(
+#'         id = "n",
+#'         text = "This is a slider !",
+#'         position = "right"
+#'       )
+#'     ),
+#'     column(
+#'       width = 8,
+#'       plotOutput("plot"),
+#'       wired_tooltip(
+#'         id = "plot",
+#'         text = "And a plot !",
+#'         position = "bottom"
+#'       )
+#'     )
+#'   )
+#' )
+#'
+#' server <- function(input, output, session) {
+#'
+#'   output$plot <- renderPlot({
+#'     plot(sin(seq(from = pi, by = 0.05, length.out = input$n)))
+#'   })
+#'
+#' }
+#'
+#' shinyApp(ui, server)
+#'
+#' }
+#'
+#' }
+wired_tooltip <- function(id, text, position = c("left", "right", "top", "bottom")) {
+  position <- match.arg(position)
+  tag <- tagw$tooltip(
+    `for` = id, position = position, text = text
+  )
+  wired_dependencies(tag)
+}
+
+
+
+

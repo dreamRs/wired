@@ -1,5 +1,5 @@
 
-#' Wired Action button
+#' Wired Action Button
 #'
 #' @param inputId The \code{input} slot that will be used to access the value. The \code{input} slot that will be used to access the value.
 #' @param label The contents of the button or link–usually a text label.
@@ -44,6 +44,52 @@ wired_button <- function(inputId, label = NULL, icon = NULL, width = NULL, ...) 
     id = inputId, class = "action-button",
     style = if (!is.null(width)) paste0("width: ", validateCssUnit(width), ";"),
     list(icon, label), ...
+  )
+  wired_dependencies(tag)
+}
+
+
+
+#' Wired Icon Button
+#'
+#' @param inputId The \code{input} slot that will be used to access the value. The \code{input} slot that will be used to access the value.
+#' @param icon An icon to appear on the button, use \href{https://material.io/tools/icons/?style=baseline}{Material icons}.
+#' @param ... Named attributes to be applied to the button.
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#' if (interactive()) {
+#'
+#' library(shiny)
+#' library(wired)
+#'
+#' ui <- fluidPage(
+#'   wired_icon_button(
+#'     inputId = "go",
+#'     icon = "favorite"
+#'   ),
+#'   tags$br(),
+#'   verbatimTextOutput(outputId = "res")
+#' )
+#'
+#' server <- function(input, output, session) {
+#'
+#'   output$res <- renderPrint(input$go)
+#'
+#' }
+#'
+#' shinyApp(ui, server)
+#'
+#' }
+#'
+#' }
+wired_icon_button <- function(inputId, icon, ...) {
+  tag <- tagw$icon_button(
+    id = inputId, class = "action-button",
+    icon, ...
   )
   wired_dependencies(tag)
 }
