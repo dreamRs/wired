@@ -108,6 +108,15 @@ shinyApp(ui, server)
 ```
 
 
+## Font
+
+Default font is [Gloria Hallelujah](https://fonts.google.com/specimen/Gloria+Hallelujah) by Kimberly Geswein.
+You can turn it off and keep only UI elements with :
+
+```r
+options("GloriaHallelujah" = FALSE)
+```
+
 
 ## UI elements
 
