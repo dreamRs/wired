@@ -13,6 +13,10 @@
 You can install the development version of wired from Github with:
 
 ``` r
+# with remotes
+remotes::install_github("dreamRs/wired")
+
+# or with install-github.me service (based on remotes)
 source("https://install-github.me/dreamRs/wired")
 
 # or with devtools:
