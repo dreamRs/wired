@@ -135,7 +135,7 @@ wired_icon_button <- function(inputId, icon, ...) {
 #'
 #' }
 wired_checkbox <- function(inputId, label, value = FALSE, width = NULL) {
-  chckTag <- tagw$checkbox(text = label, id = inputId)
+  chckTag <- tagw$checkbox(label, id = inputId)
   if (value)
     chckTag$attribs$checked <- "checked"
   tag <- tags$div(
@@ -198,7 +198,7 @@ wired_select <- function(inputId, label, choices, selected = NULL, width = NULL)
   itemTags <- lapply(
     X = seq_along(choices),
     FUN = function(i) {
-      tagw$item(value = choices[[i]], text = names(choices)[i])
+      tagw$item(value = choices[[i]], names(choices)[i])
     }
   )
   selectTag <- tagw$combo(itemTags, selected = selected, id = inputId)
@@ -321,7 +321,7 @@ wired_radio <- function(inputId, label, choices, selected = NULL, width = NULL) 
   radioTags <- lapply(
     X = seq_along(choices),
     FUN = function(i) {
-      tagw$radio(name = choices[[i]], text = names(choices)[i])
+      tagw$radio(name = choices[[i]], text = names(choices)[i], names(choices)[i])
     }
   )
   radioGroupTag <- tagw$radio_group(radioTags, selected = selected, id = inputId)

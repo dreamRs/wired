@@ -3,9 +3,10 @@
 > Hand drawn UI elements with [wired](https://wiredjs.com/) for [shiny](https://shiny.rstudio.com/) applications.
 
 [![Travis build status](https://travis-ci.org/dreamRs/wired.svg?branch=master)](https://travis-ci.org/dreamRs/wired)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
 
-:warning: Doesn't work in RStudio viewer, use your default browser :warning:
+:warning: Use RStudio >= 1.2 or your default browser :warning:
 
 
 ## Installation
