@@ -130,3 +130,23 @@ wired_tooltip <- function(id, text, position = c("left", "right", "top", "bottom
 
 
 
+
+#' Wired Image
+#'
+#' @param src URL / path of the image.
+#' @param elevation Numerical number between 1-5 (inclusive) -
+#'  sets the elevation of the card. Default is 1.
+#' @param ... Named attributes to be applied to the image.
+#'
+#' @return an HTML tag
+#' @export
+#'
+#' @example examples/wired_image.R
+wired_image <- function(src, elevation = 1, ...) {
+  wired_dependencies(
+    wired_tag$image(src = src, elevation = elevation, ...)
+  )
+}
+
+
+

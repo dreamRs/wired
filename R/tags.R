@@ -43,4 +43,7 @@ wired_tag$tooltip <- function(...) {
 wired_tag$search_input <- function(...) {
  tag("wired-search-input", list(...))
 }
+wired_tag$image <- function(...) {
+  tag("wired-image", list(...))
+}
 

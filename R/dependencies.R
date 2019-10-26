@@ -3,19 +3,19 @@
 wired_dependencies <- function(tag) {
   font <- getOption(x = "GloriaHallelujah", default = TRUE)
   if (isTRUE(font)) {
-    stylesheet <- "styles.css"
+    stylesheet <- "wired/styles.css"
   } else {
     stylesheet <- NULL
   }
   dep <- htmlDependency(
     name = "wired",
     version = "2.0.0",
-    src = c(href = "assets/wired"),
+    src = c(href = "assets", file = "assets"),
     package = "wired",
     script = c(
-      "wired-elements-2.0.0.bundled.js",
+      "wired/wired-elements-2.0.0.bundled.js",
       # "showcase.min.js",
-      "wired-bindings.js"
+      "wired/wired-bindings.js"
     ),
     stylesheet = stylesheet
   )
