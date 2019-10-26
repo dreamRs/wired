@@ -52,6 +52,7 @@ server <- function(input, output, session) {
   })
 
   d <- reactive({
+    req(input$n > 0)
     dist <- switch(
       input$dist,
       norm = rnorm,

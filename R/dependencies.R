@@ -1,7 +1,6 @@
 
 #' @importFrom htmltools htmlDependency attachDependencies
 wired_dependencies <- function(tag) {
-  version <- as.character(packageVersion("wired")[[1]])
   font <- getOption(x = "GloriaHallelujah", default = TRUE)
   if (isTRUE(font)) {
     stylesheet <- "styles.css"
@@ -9,8 +8,10 @@ wired_dependencies <- function(tag) {
     stylesheet <- NULL
   }
   dep <- htmlDependency(
-    name = "wired", version = version,
-    src = c(href = "wired"),
+    name = "wired",
+    version = "1.0.0",
+    src = c(href = "assets/wired"),
+    package = "wired",
     script = c(
       "wired-elements.bundled.min.js",
       "wired-bindings.js"

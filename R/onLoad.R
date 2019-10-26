@@ -1,9 +1,8 @@
-#' Adds the content of www to wired/
+#' Shiny resource
 #'
 #' @importFrom shiny addResourcePath
-#' @importFrom utils packageVersion
 #'
 #' @noRd
 .onLoad <- function(...) {
-  shiny::addResourcePath('wired', system.file('assets', package = 'wired'))
+  shiny::addResourcePath('assets', system.file('assets', package = 'wired'))
 }
