@@ -1,0 +1,62 @@
+---
+title: "Wired HTML document"
+output: 
+  wired::wired_document:
+    self_contained: true
+---
+
+```{r setup, include=FALSE}
+library(wired)
+knitr::opts_chunk$set(echo = TRUE)
+
+# test <- function(before, options, envir) {
+#   if (!before) {
+#     ## after a chunk has been evaluated
+#     # if (rgl.cur() == 0) return()  # no active device
+#     name = paste(options$fig.path, options$label, sep = '')
+#     print(ls(envir))
+#     return(sprintf("<wired-image src='%s'></wired-image>", name))
+#   }
+# }
+
+# knitr::knit_hooks$set(plot = hook_plot_wired)
+```
+
+
+```{r, echo=FALSE}
+wired_card(
+  "A sketchy markdown document !",
+  width = "100%"
+)
+```
+
+
+
+## R Markdown
+
+```{r, echo=FALSE}
+wired_divider(2)
+```
+
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+```{r, echo=FALSE}
+wired_divider(2)
+```
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE, wired=TRUE, fig.width=9}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

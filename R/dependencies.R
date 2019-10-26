@@ -1,13 +1,18 @@
 
-#' @importFrom htmltools htmlDependency attachDependencies
+#' @importFrom htmltools attachDependencies
 wired_dependencies <- function(tag) {
+  attachDependencies(tag, wired_deps(), append = TRUE)
+}
+
+#' @importFrom htmltools htmlDependency
+wired_deps <- function() {
   font <- getOption(x = "GloriaHallelujah", default = TRUE)
   if (isTRUE(font)) {
     stylesheet <- "wired/styles.css"
   } else {
     stylesheet <- NULL
   }
-  dep <- htmlDependency(
+  htmlDependency(
     name = "wired",
     version = "2.0.0",
     src = c(href = "assets", file = "assets"),
@@ -19,5 +24,5 @@ wired_dependencies <- function(tag) {
     ),
     stylesheet = stylesheet
   )
-  attachDependencies(tag, dep, append = TRUE)
 }
+

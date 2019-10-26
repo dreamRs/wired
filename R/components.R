@@ -2,57 +2,24 @@
 #' Wired Card
 #'
 #' @param ... UI objects to be contained in the card.
-#' @param elevation Numerical number between 1-5 (inclusive) - sets the elevation of the card. Default is 2.
-#' @param padding Amount of padding to apply. Can be numeric (in pixels) or character (e.g. "3em").
-#' @param width The width of the input, e.g. \code{400px}, or \code{100\%}; see \link[htmltools]{validateCssUnit}.
+#' @param elevation Numerical number between 1-5 (inclusive) -
+#'  sets the elevation of the card. Default is 2.
+#' @param padding Amount of padding to apply. Can be numeric
+#'  (in pixels) or character (e.g. "3em").
+#' @param fill A color to fill the background of the card in a sketchy format.
+#' @param width The width of the input, e.g. \code{400px},
+#'  or \code{100\%}; see \link[htmltools]{validateCssUnit}.
 #'
 #' @export
 #'
-#' @examples
-#' \dontrun{
-#'
-#' if (interactive()) {
-#'
-#' library(shiny)
-#' library(wired)
-#'
-#' ui <- fluidPage(
-#'   fluidRow(
-#'     column(
-#'       width = 4,
-#'       wired_card("Simple card")
-#'     ),
-#'     column(
-#'       width = 4,
-#'       wired_card(
-#'         "Another one with a plot!",
-#'         plotOutput(outputId = "plot"),
-#'         elevation = 5, width = "100%"
-#'       )
-#'     )
-#'   )
-#' )
-#'
-#' server <- function(input, output, session) {
-#'
-#'   output$plot <- renderPlot({
-#'     plot(sin(seq(-pi, pi, length.out = 100)), type = "l")
-#'   })
-#'
-#' }
-#'
-#' shinyApp(ui, server)
-#'
-#' }
-#'
-#' }
-wired_card <- function(..., elevation = 2, padding = 10, width = NULL) {
+#' @example examples/wired_card.R
+wired_card <- function(..., elevation = 2, fill = NULL, padding = 10, width = NULL) {
   if (elevation < 1 | elevation > 5)
     stop("Elevation must be between 1-5 (inclusive).", call. = FALSE)
   tag <- wired_tag$card(
     style = if (!is.null(width)) paste0("width: ", validateCssUnit(width), ";"),
     style = paste0("padding: ", validateCssUnit(padding), ";"),
-    ..., elevation = elevation
+    ..., elevation = elevation, fill = fill
   )
   wired_dependencies(tag)
 }
