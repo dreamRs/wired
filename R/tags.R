@@ -46,4 +46,7 @@ wired_tag$search_input <- function(...) {
 wired_tag$image <- function(...) {
   tag("wired-image", list(...))
 }
+wired_tag$divider <- function(...) {
+  tag("wired-divider", list(...))
+}
 

@@ -3,6 +3,7 @@
 export(wired_button)
 export(wired_card)
 export(wired_checkbox)
+export(wired_divider)
 export(wired_icon_button)
 export(wired_image)
 export(wired_radio)

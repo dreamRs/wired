@@ -1,5 +1,5 @@
 Package: wired
-Version: 0.0.1
+Version: 0.0.1.900
 Title: Wired Elements in Shiny
 Description: UI Elements that have a hand drawn look for Shiny application.
 Authors@R: c(
