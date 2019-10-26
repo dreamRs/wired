@@ -65,24 +65,24 @@ server <- function(input, output, session) {
     data.frame(x = dist(floor(input$n)))
   })
 
-  output$plot <- renderPlot({
-    h <- ggplot(d()) + geom_histogram(aes(x))
-
-    if (input$log)
-      h <- h + scale_x_log10()
-    ggplot() +
-      xkcdrect(
-        mapping = aes(
-          xmin = xmin,
-          xmax = xmax,
-          ymin = 0,
-          ymax = count
-        ),
-        data = layer_data(h),
-        fill = "steelblue", colour = "black"
-      ) +
-      theme_minimal()
-  })
+  # output$plot <- renderPlot({
+  #   h <- ggplot(d()) + geom_histogram(aes(x))
+  #
+  #   if (input$log)
+  #     h <- h + scale_x_log10()
+  #   ggplot() +
+  #     xkcdrect(
+  #       mapping = aes(
+  #         xmin = xmin,
+  #         xmax = xmax,
+  #         ymin = 0,
+  #         ymax = count
+  #       ),
+  #       data = layer_data(h),
+  #       fill = "steelblue", colour = "black"
+  #     ) +
+  #     theme_minimal()
+  # })
 
 }
 

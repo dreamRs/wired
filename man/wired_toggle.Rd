@@ -2,7 +2,7 @@
 % Please edit documentation in R/inputs.R
 \name{wired_toggle}
 \alias{wired_toggle}
-\title{Wired Ttoggle}
+\title{Wired Toggle}
 \usage{
 wired_toggle(inputId, label, value = FALSE, width = NULL)
 }
@@ -16,33 +16,29 @@ wired_toggle(inputId, label, value = FALSE, width = NULL)
 \item{width}{The width of the input, e.g. \code{400px}, or \code{100\%}; see \link[htmltools]{validateCssUnit}.}
 }
 \description{
-Wired Ttoggle
+Wired Toggle
 }
 \examples{
-\dontrun{
-
 if (interactive()) {
 
-library(shiny)
-library(wired)
+  library(shiny)
+  library(wired)
 
-ui <- fluidPage(
-  wired_toggle(
-    inputId = "tggl",
-    label = "Toggle:"
-  ),
-  verbatimTextOutput(outputId = "res")
-)
+  ui <- fluidPage(
+    wired_toggle(
+      inputId = "tggl",
+      label = "Toggle:"
+    ),
+    verbatimTextOutput(outputId = "res")
+  )
 
-server <- function(input, output, session) {
+  server <- function(input, output, session) {
 
-  output$res <- renderPrint(input$tggl)
+    output$res <- renderPrint(input$tggl)
 
-}
+  }
 
-shinyApp(ui, server)
-
-}
+  shinyApp(ui, server)
 
 }
 }

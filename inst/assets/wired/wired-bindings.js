@@ -26,13 +26,13 @@ $.extend(wiredCheckboxBinding, {
     $(el).off('.wiredCheckboxBinding');
   },
   receiveMessage: function receiveMessage(el, data) {
-    
+
     // TODO
-    
+
     //if (data.hasOwnProperty('value')) el.checked = data.value;
-  
+
     //if (data.hasOwnProperty('label')) $(el).parent().find('span').text(data.label);
-  
+
     $(el).trigger('change');
   }
 });
@@ -63,11 +63,11 @@ $.extend(wiredSelectBinding, {
     $(el).off('.wiredSelectBinding');
   },
   receiveMessage: function receiveMessage(el, data) {
-    
+
     // TODO
-    
+
     this.setValue(el, data.value);
-  
+
     $(el).trigger('change');
   }
 });
@@ -96,11 +96,11 @@ $.extend(wiredSliderBinding, {
     $(el).off('.wiredSliderBinding');
   },
   receiveMessage: function receiveMessage(el, data) {
-    
+
     // TODO
-    
+
     this.setValue(el, data.value);
-  
+
     $(el).trigger('change');
   }
 });
@@ -130,11 +130,11 @@ $.extend(wiredRadioBinding, {
     $(el).off('.wiredRadioBinding');
   },
   receiveMessage: function receiveMessage(el, data) {
-    
+
     // TODO
-    
+
     this.setValue(el, data.value);
-  
+
     $(el).trigger('change');
   }
 });
@@ -166,13 +166,13 @@ $.extend(wiredToggleBinding, {
     $(el).off('.wiredToggleBinding');
   },
   receiveMessage: function receiveMessage(el, data) {
-    
+
     // TODO
-    
+
     //if (data.hasOwnProperty('value')) el.checked = data.value;
-  
+
     //if (data.hasOwnProperty('label')) $(el).parent().find('span').text(data.label);
-  
+
     $(el).trigger('change');
   }
 });
@@ -207,11 +207,11 @@ $.extend(wiredTextBinding, {
   },
   receiveMessage: function receiveMessage(el, data) {
     if (data.hasOwnProperty('value')) this.setValue(el, data.value);
-  
+
     if (data.hasOwnProperty('label')) $(el).parent().find('label[for="' + $escape(el.id) + '"]').text(data.label);
-  
+
     if (data.hasOwnProperty('placeholder')) el.placeholder = data.placeholder;
-  
+
     $(el).trigger('change');
   },
   getState: function getState(el) {
@@ -229,5 +229,61 @@ $.extend(wiredTextBinding, {
   }
 });
 Shiny.inputBindings.register(wiredTextBinding, 'shiny.wired_text');
+
+
+
+// Wired Text Input
+
+var wiredSearchBinding = new Shiny.InputBinding();
+$.extend(wiredSearchBinding, {
+  find: function find(scope) {
+    return $(scope).find('wired-search-input');
+  },
+  getValue: function getValue(el) {
+    return el.value;
+  },
+  setValue: function setValue(el, value) {
+    el.value = value;
+  },
+  subscribe: function subscribe(el, callback) {
+    $(el).on('keyup input', function (event) {
+    	if(event.keyCode == 13) { //if enter
+    	  callback();
+       }
+    });
+    $(el).find('button').on('click', function (event) {
+    	callback();
+    });
+    $(el).on('change', function (event) {
+  	//callback(true);
+    });
+  },
+  unsubscribe: function unsubscribe(el) {
+    $(el).off('.wiredTextBinding');
+  },
+  receiveMessage: function receiveMessage(el, data) {
+    if (data.hasOwnProperty('value')) this.setValue(el, data.value);
+
+    if (data.hasOwnProperty('label')) $(el).parent().find('label[for="' + $escape(el.id) + '"]').text(data.label);
+
+    if (data.hasOwnProperty('placeholder')) el.placeholder = data.placeholder;
+
+    $(el).trigger('change');
+  },
+  getState: function getState(el) {
+    return {
+  	label: $(el).parent().find('label[for="' + $escape(el.id) + '"]').text(),
+  	value: el.value,
+  	placeholder: el.placeholder
+    };
+  },
+  getRatePolicy: function getRatePolicy() {
+    return {
+  	policy: 'debounce',
+  	delay: 250
+    };
+  }
+});
+Shiny.inputBindings.register(wiredSearchBinding, 'shiny.wired_search');
 
 

@@ -5,7 +5,7 @@
 \title{Wired Slider}
 \usage{
 wired_slider(inputId, label = NULL, value = 10, min = 0, max = 100,
-  radius = 20, width = NULL)
+  step = 1, radius = 20, width = NULL)
 }
 \arguments{
 \item{inputId}{The \code{input} slot that will be used to access the value.}
@@ -18,6 +18,8 @@ wired_slider(inputId, label = NULL, value = 10, min = 0, max = 100,
 
 \item{max}{The maximum value (inclusive) that can be selected.}
 
+\item{step}{Specifies the interval between each selectable value on the slider.}
+
 \item{radius}{Radius of the knob of the slider.}
 
 \item{width}{The width of the input, e.g. \code{400px}, or \code{100\%}; see \link[htmltools]{validateCssUnit}.}
@@ -26,34 +28,31 @@ wired_slider(inputId, label = NULL, value = 10, min = 0, max = 100,
 Wired Slider
 }
 \examples{
-\dontrun{
-
 if (interactive()) {
 
-library(shiny)
-library(wired)
+  library(shiny)
+  library(wired)
 
-ui <- fluidPage(
-  wired_slider(
-    inputId = "sldr",
-    label = "Slider:",
-    min = 10,
-    max = 60,
-    value = 30,
-    radius = 10
-  ),
-  verbatimTextOutput(outputId = "res")
-)
+  ui <- fluidPage(
+    wired_slider(
+      inputId = "sldr",
+      label = "Slider:",
+      min = 50,
+      max = 600,
+      value = 300,
+      step = 10,
+      radius = 10
+    ),
+    verbatimTextOutput(outputId = "res")
+  )
 
-server <- function(input, output, session) {
+  server <- function(input, output, session) {
 
-  output$res <- renderPrint(input$sldr)
+    output$res <- renderPrint(input$sldr)
 
-}
+  }
 
-shinyApp(ui, server)
-
-}
+  shinyApp(ui, server)
 
 }
 }

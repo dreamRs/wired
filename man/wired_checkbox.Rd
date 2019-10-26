@@ -19,30 +19,26 @@ wired_checkbox(inputId, label, value = FALSE, width = NULL)
 Wired Single Checkbox
 }
 \examples{
-\dontrun{
-
 if (interactive()) {
 
-library(shiny)
-library(wired)
+  library(shiny)
+  library(wired)
 
-ui <- fluidPage(
-  wired_checkbox(
-    inputId = "chck",
-    label = "Single checkbox"
-  ),
-  verbatimTextOutput(outputId = "res")
-)
+  ui <- fluidPage(
+    wired_checkbox(
+      inputId = "chck",
+      label = "Single checkbox"
+    ),
+    verbatimTextOutput(outputId = "res")
+  )
 
-server <- function(input, output, session) {
+  server <- function(input, output, session) {
 
-  output$res <- renderPrint(input$chck)
+    output$res <- renderPrint(input$chck)
 
-}
+  }
 
-shinyApp(ui, server)
-
-}
+  shinyApp(ui, server)
 
 }
 }

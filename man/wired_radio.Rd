@@ -21,33 +21,29 @@ wired_radio(inputId, label, choices, selected = NULL, width = NULL)
 Wired Radio Buttons
 }
 \examples{
-\dontrun{
-
 if (interactive()) {
 
-library(shiny)
-library(wired)
+  library(shiny)
+  library(wired)
 
-ui <- fluidPage(
-  wired_radio(
-    inputId = "radi", label = "Radio buttons:",
-    choices = c("Normal" = "norm",
-                "Uniform" = "unif",
-                "Log-normal" = "lnorm",
-                "Exponential" = "exp")
-  ),
-  verbatimTextOutput(outputId = "res")
-)
+  ui <- fluidPage(
+    wired_radio(
+      inputId = "radi", label = "Radio buttons:",
+      choices = c("Normal" = "norm",
+                  "Uniform" = "unif",
+                  "Log-normal" = "lnorm",
+                  "Exponential" = "exp")
+    ),
+    verbatimTextOutput(outputId = "res")
+  )
 
-server <- function(input, output, session) {
+  server <- function(input, output, session) {
 
-  output$res <- renderPrint(input$radi)
+    output$res <- renderPrint(input$radi)
 
-}
+  }
 
-shinyApp(ui, server)
-
-}
+  shinyApp(ui, server)
 
 }
 }

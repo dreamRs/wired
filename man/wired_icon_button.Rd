@@ -9,7 +9,7 @@ wired_icon_button(inputId, icon, ...)
 \arguments{
 \item{inputId}{The \code{input} slot that will be used to access the value. The \code{input} slot that will be used to access the value.}
 
-\item{icon}{An icon to appear on the button, use \href{https://material.io/tools/icons/?style=baseline}{Material icons}.}
+\item{icon}{An \code{\link[shiny:icon]{shiny::icon}} to appear on the button.}
 
 \item{...}{Named attributes to be applied to the button.}
 }
@@ -17,31 +17,27 @@ wired_icon_button(inputId, icon, ...)
 Wired Icon Button
 }
 \examples{
-\dontrun{
-
 if (interactive()) {
 
-library(shiny)
-library(wired)
+  library(shiny)
+  library(wired)
 
-ui <- fluidPage(
-  wired_icon_button(
-    inputId = "go",
-    icon = "favorite"
-  ),
-  tags$br(),
-  verbatimTextOutput(outputId = "res")
-)
+  ui <- fluidPage(
+    wired_icon_button(
+      inputId = "go",
+      icon = icon("close")
+    ),
+    tags$br(),
+    verbatimTextOutput(outputId = "res")
+  )
 
-server <- function(input, output, session) {
+  server <- function(input, output, session) {
 
-  output$res <- renderPrint(input$go)
+    output$res <- renderPrint(input$go)
 
-}
+  }
 
-shinyApp(ui, server)
-
-}
+  shinyApp(ui, server)
 
 }
 }

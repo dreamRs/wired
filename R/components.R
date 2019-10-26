@@ -49,7 +49,7 @@
 wired_card <- function(..., elevation = 2, padding = 10, width = NULL) {
   if (elevation < 1 | elevation > 5)
     stop("Elevation must be between 1-5 (inclusive).", call. = FALSE)
-  tag <- tagw$card(
+  tag <- wired_tag$card(
     style = if (!is.null(width)) paste0("width: ", validateCssUnit(width), ";"),
     style = paste0("padding: ", validateCssUnit(padding), ";"),
     ..., elevation = elevation
@@ -121,7 +121,7 @@ wired_card <- function(..., elevation = 2, padding = 10, width = NULL) {
 #' }
 wired_tooltip <- function(id, text, position = c("left", "right", "top", "bottom")) {
   position <- match.arg(position)
-  tag <- tagw$tooltip(
+  tag <- wired_tag$tooltip(
     `for` = id, position = position, text = text
   )
   wired_dependencies(tag)

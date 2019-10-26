@@ -4,16 +4,22 @@
 \alias{wired_button}
 \title{Wired Action Button}
 \usage{
-wired_button(inputId, label = NULL, icon = NULL, width = NULL, ...)
+wired_button(inputId, label = NULL, icon = NULL, elevation = 1,
+  width = NULL, ...)
 }
 \arguments{
-\item{inputId}{The \code{input} slot that will be used to access the value. The \code{input} slot that will be used to access the value.}
+\item{inputId}{The \code{input} slot that will be used to access the value.
+The \code{input} slot that will be used to access the value.}
 
 \item{label}{The contents of the button or link–usually a text label.}
 
 \item{icon}{An optional icon to appear on the button.}
 
-\item{width}{The width of the input, e.g. \code{400px}, or \code{100\%}; see \link[htmltools]{validateCssUnit}.}
+\item{elevation}{Number between 1 and 5 (inclusive) that gives
+the button a sketchy height. Default value is 1.}
+
+\item{width}{The width of the input, e.g. \code{400px}, or
+\code{100\%}; see \link[htmltools]{validateCssUnit}.}
 
 \item{...}{Named attributes to be applied to the button.}
 }
@@ -21,31 +27,36 @@ wired_button(inputId, label = NULL, icon = NULL, width = NULL, ...)
 Wired Action Button
 }
 \examples{
-\dontrun{
-
 if (interactive()) {
 
-library(shiny)
-library(wired)
+  library(shiny)
+  library(wired)
 
-ui <- fluidPage(
-  wired_button(
-    inputId = "go",
-    label = "GO!"
-  ),
-  tags$br(),
-  verbatimTextOutput(outputId = "res")
-)
+  ui <- fluidPage(
+    wired_button(
+      inputId = "button1",
+      label = "GO!"
+    ),
+    tags$br(),
+    verbatimTextOutput(outputId = "res1"),
+    wired_button(
+      inputId = "button2",
+      elevation = 5,
+      label = "Another button"
+    ),
+    tags$br(),
+    verbatimTextOutput(outputId = "res2")
+  )
 
-server <- function(input, output, session) {
+  server <- function(input, output, session) {
 
-  output$res <- renderPrint(input$go)
+    output$res1 <- renderPrint(input$button1)
 
-}
+    output$res2 <- renderPrint(input$button2)
 
-shinyApp(ui, server)
+  }
 
-}
+  shinyApp(ui, server)
 
 }
 }

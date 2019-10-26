@@ -9,11 +9,12 @@ wired_dependencies <- function(tag) {
   }
   dep <- htmlDependency(
     name = "wired",
-    version = "1.0.0",
+    version = "2.0.0",
     src = c(href = "assets/wired"),
     package = "wired",
     script = c(
-      "wired-elements.bundled.min.js",
+      "wired-elements-2.0.0.bundled.js",
+      # "showcase.min.js",
       "wired-bindings.js"
     ),
     stylesheet = stylesheet
