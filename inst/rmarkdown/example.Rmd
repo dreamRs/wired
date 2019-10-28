@@ -20,6 +20,26 @@ knitr::opts_chunk$set(echo = TRUE)
 # }
 
 # knitr::knit_hooks$set(plot = hook_plot_wired)
+
+if (knitr::is_html_output()) {
+  knitr::knit_hooks$set(
+    plot = function(x, options) {
+      if (isTRUE(options$wired)) {
+        cap  <- options$fig.cap  # figure caption
+        tags <- htmltools::tags
+        if (knitr::opts_knit$get("self.contained")) {
+          x <- knitr::image_uri(x)
+        }
+        as.character(tags$div(
+          wired_image(src = x, alt = cap),
+          tags$figcaption(cap)
+        ))
+      } else {
+        knitr::hook_plot_html(x, options)
+      }
+    }
+  )
+}
 ```
 
 
