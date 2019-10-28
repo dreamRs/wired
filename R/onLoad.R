@@ -4,5 +4,5 @@
 #'
 #' @noRd
 .onLoad <- function(...) {
-  shiny::addResourcePath('assets', system.file('assets', package = 'wired'))
+  shiny::addResourcePath("assets", system.file("assets", package = "wired"))
 }

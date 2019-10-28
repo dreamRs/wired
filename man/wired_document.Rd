@@ -2,7 +2,7 @@
 % Please edit documentation in R/markdown.R
 \name{wired_document}
 \alias{wired_document}
-\title{Convert to an Wired HTML document}
+\title{Convert to a Wired HTML document}
 \usage{
 wired_document(...)
 }
@@ -13,7 +13,7 @@ wired_document(...)
 R Markdown output format to pass to render.
 }
 \description{
-Convert to an Wired HTML document
+Convert to a Wired HTML document
 }
 \examples{
 # todo
