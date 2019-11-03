@@ -49,4 +49,7 @@ wired_tag$image <- function(...) {
 wired_tag$divider <- function(...) {
   tag("wired-divider", list(...))
 }
+wired_tag$progress <- function(...) {
+  tag("wired-progress", list(...))
+}
 

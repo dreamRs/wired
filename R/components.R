@@ -108,11 +108,14 @@ wired_tooltip <- function(id, text, position = c("left", "right", "top", "bottom
 #' @return an HTML tag
 #' @export
 #'
+#' @importFrom htmltools browsable
+#'
 #' @example examples/wired_image.R
 wired_image <- function(src, elevation = 1, ...) {
-  wired_dependencies(
+  wimg <- wired_dependencies(
     wired_tag$image(src = src, elevation = elevation, ...)
   )
+  browsable(wimg)
 }
 
 
@@ -130,6 +133,58 @@ wired_divider <- function(elevation = 1) {
     wired_tag$divider(elevation = elevation)
   )
 }
+
+
+
+#' Wired Progress bar
+#'
+#' @param id Id for the progress bar.
+#' @param value Numeric value of the progress.
+#' @param min Minimum value. Default is 0.
+#' @param max Maximum value. Default is 100.
+#' @param percentage Boolean indicating if the label should show a \% symbol.
+#' @param width Width of the progress bar.
+#'
+#' @return an HTML tag
+#' @export
+#'
+#' @name wired-progress
+#'
+#' @importFrom htmltools browsable validateCssUnit
+#'
+#' @example examples/wired_progress.R
+wired_progress <- function(id, value, min = 0, max = 100, percentage = TRUE, width = "100%") {
+  wprg <- wired_dependencies(
+    wired_tag$progress(
+      id = id, value = value,
+      min = min, max = max,
+      percentage = if (isTRUE(percentage)) percentage else NULL,
+      style = if (!is.null(width)) sprintf("width:%s;", validateCssUnit(width))
+    )
+  )
+  browsable(wprg)
+}
+
+#' @param session Shiny session.
+#'
+#' @export
+#'
+#' @rdname wired-progress
+#'
+#' @importFrom shiny getDefaultReactiveDomain
+update_wired_progress <- function(id, value, session = shiny::getDefaultReactiveDomain()) {
+  session$sendCustomMessage(
+    type = "update-wired-progress",
+    message = list(
+      id = id,
+      value = value
+    )
+  )
+}
+
+
+
+
 
 
 

@@ -279,5 +279,11 @@ if (typeof window.Shiny !== "undefined") {
     }
   });
   Shiny.inputBindings.register(wiredSearchBinding, "shiny.wired_search");
+
+  // Progress bar
+  Shiny.addCustomMessageHandler("update-wired-progress", function(data) {
+    var prog = document.getElementById(data.id);
+    prog.value = data.value;
+  });
 }
 
