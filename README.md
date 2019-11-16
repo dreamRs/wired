@@ -13,15 +13,8 @@
 
 You can install the development version of wired from Github with:
 
-``` r
-# with remotes
+```r
 remotes::install_github("dreamRs/wired")
-
-# or with install-github.me service (based on remotes)
-source("https://install-github.me/dreamRs/wired")
-
-# or with devtools:
-devtools::install_github("dreamRs/wired")
 ```
 
 ## Example
@@ -122,30 +115,6 @@ You can turn it off and keep only UI elements with :
 options("GloriaHallelujah" = FALSE)
 ```
 
-
-## UI elements
-
-Widgets available:
-
-* single checkbox
-* slider
-* select box
-* text input
-* radio buttons
-* toggle switch
-* cards
-* icon button
-* tooltip
-
-Not yet implemented:
-
-* list box
-* progress bars
-* text area
-
-To do:
-
-* update methods
 
 
 
