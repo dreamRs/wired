@@ -285,5 +285,14 @@ if (typeof window.Shiny !== "undefined") {
     var prog = document.getElementById(data.id);
     prog.value = data.value;
   });
+
+  // Dialog
+  Shiny.addCustomMessageHandler("open-wired-dialog", function(data) {
+    document.getElementById(data.id).open = true;
+  });
+  Shiny.addCustomMessageHandler("close-wired-dialog", function(data) {
+    document.getElementById(data.id).open = false;
+  });
+
 }
 

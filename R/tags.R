@@ -52,4 +52,6 @@ wired_tag$divider <- function(...) {
 wired_tag$progress <- function(...) {
   tag("wired-progress", list(...))
 }
-
+wired_tag$dialog <- function(...) {
+  tag("wired-dialog", list(...))
+}

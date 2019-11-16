@@ -184,8 +184,72 @@ update_wired_progress <- function(id, value, session = shiny::getDefaultReactive
 
 
 
+#' Wired Dialog (Modal)
+#'
+#' @param ... Content of the modal window.
+#' @param labelClose Label for close button.
+#' @param width Width of the dialog.
+#' @param id Id for the dialog, can be useful to open/close dialog from server.
+#' @param ui Result of \code{wired_dialog}.
+#' @param session Shiny session.
+#'
+#' @name wired-dialog
+#' @export
+#'
+#' @importFrom htmltools validateCssUnit
+#' @importFrom shiny insertUI
+#'
+#' @example examples/wired_dialog.R
+wired_dialog <- function(..., labelClose = "Close", width = "500px", id = NULL) {
+  if (is.null(id))
+    id <- paste0("wd-", sample.int(1e7, 1))
+  wired_dependencies(
+    wired_tag$dialog(
+      id = id,
+      tags$div(
+        style = if (!is.null(width)) sprintf("width:%s;", validateCssUnit(width)),
+        ...
+      ),
+      if (!is.null(labelClose)) {
+        tags$div(
+          style="text-align: right; padding: 30px 16px 16px;",
+          wired_tag$button(
+            labelClose,
+            onclick = sprintf("document.getElementById('%s').open = false;", id)
+          )
+        )
+      }
+    )
+  )
+}
 
+#' @rdname wired-dialog
+#' @export
+#' @importFrom shiny getDefaultReactiveDomain
+show_wired_dialog <- function(ui, session = shiny::getDefaultReactiveDomain()) {
+  stopifnot(inherits(ui, "shiny.tag"))
+  if (!identical(ui$name, "wired-dialog"))
+    stop("'ui' must be contruct with wired_dialog().")
+  id <- ui$attribs$id
+  insertUI(
+    selector = "body",
+    ui = ui,
+    session = session,
+    immediate = TRUE
+  )
+  open_wired_dialog(id, session)
+}
 
+#' @rdname wired-dialog
+#' @export
+#' @importFrom shiny getDefaultReactiveDomain
+open_wired_dialog <- function(id, session = shiny::getDefaultReactiveDomain()) {
+  session$sendCustomMessage("open-wired-dialog", list(id = id))
+}
 
-
-
+#' @rdname wired-dialog
+#' @export
+#' @importFrom shiny getDefaultReactiveDomain
+close_wired_dialog <- function(id, session = shiny::getDefaultReactiveDomain()) {
+  session$sendCustomMessage("close-wired-dialog", list(id = id))
+}
