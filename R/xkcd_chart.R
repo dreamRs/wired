@@ -1,11 +1,19 @@
-#' <Add Title>
+
+#' @title Raw API to use chart.xkcd JavaScript library
 #'
-#' <Add Description>
+#' @param config A \code{list} of parameter to define chart options.
+#' @param type Type of chart : line, scatter, bar, pie or radar.
+#' @param width A numeric input in pixels.
+#' @param height A numeric input in pixels.
+#' @param elementId Use an explicit element ID for the widget.
 #'
-#' @importFrom htmlwidgets createWidget
+#' @importFrom htmlwidgets createWidget sizingPolicy
 #'
 #' @export
-xkcd_chart <- function(config, type = c("line", "scatter", "bar", "pie", "radar"), width = NULL, height = NULL, elementId = NULL) {
+#'
+#' @example examples/xkcd_chart.R
+xkcd_chart <- function(config, type = c("line", "scatter", "bar", "pie", "radar"),
+                       width = NULL, height = NULL, elementId = NULL) {
 
   type <- match.arg(type)
   type <- switch(
@@ -28,7 +36,20 @@ xkcd_chart <- function(config, type = c("line", "scatter", "bar", "pie", "radar"
     width = width,
     height = height,
     package = "wired",
-    elementId = elementId
+    elementId = elementId,
+    sizingPolicy = sizingPolicy(
+      defaultWidth = "100%",
+      defaultHeight = "100%",
+      viewer.defaultHeight = "100%",
+      viewer.defaultWidth = "100%",
+      viewer.fill = TRUE,
+      browser.defaultHeight = "100%",
+      browser.defaultWidth = "100%",
+      knitr.defaultHeight = "320px",
+      knitr.figure = FALSE,
+      browser.fill = TRUE,
+      padding = 10
+    )
   )
 }
 

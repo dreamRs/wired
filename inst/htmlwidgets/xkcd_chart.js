@@ -4,17 +4,21 @@ HTMLWidgets.widget({
   type: "output",
 
   factory: function(el, width, height) {
-    // TODO: define shared variables for this instance
+
+    var type, config;
 
     return {
       renderValue: function(x) {
 
-        new chartXkcd[x.type](el, x.config);
+        type = x.type;
+        config = x.config;
+
+        new chartXkcd[type](el, config);
 
       },
 
       resize: function(width, height) {
-        // TODO: code to re-render the widget with a new size
+        new chartXkcd[type](el, config);
       }
     };
   }

@@ -2,11 +2,49 @@
 % Please edit documentation in R/xkcd_chart.R
 \name{xkcd_chart}
 \alias{xkcd_chart}
-\title{<Add Title>}
+\title{Raw API to use chart.xkcd JavaScript library}
 \usage{
 xkcd_chart(config, type = c("line", "scatter", "bar", "pie", "radar"),
   width = NULL, height = NULL, elementId = NULL)
 }
+\arguments{
+\item{config}{A \code{list} of parameter to define chart options.}
+
+\item{type}{Type of chart : line, scatter, bar, pie or radar.}
+
+\item{width}{A numeric input in pixels.}
+
+\item{height}{A numeric input in pixels.}
+
+\item{elementId}{Use an explicit element ID for the widget.}
+}
 \description{
-<Add Description>
+Raw API to use chart.xkcd JavaScript library
+}
+\examples{
+# Basic usage
+
+xkcd_chart(
+  config = list(
+    title = "Sine & Cosine",
+    data = list(
+      labels = as.character(seq_len(10)),
+      datasets = list(
+        list(
+          label = "Sine",
+          data = sin(seq_len(10))
+        ),
+        list(
+          label = "Cosine",
+          data = cos(seq_len(10))
+        )
+      )
+    ),
+    options = list(
+      dataColors = c("red", "blue")
+    )
+  ),
+  type = "line"
+)
+
 }

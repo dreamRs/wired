@@ -6,7 +6,8 @@ Authors@R: c(
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
   person("Fanny", "Meyer", email = "fanny.meyer@dreamrs.fr", role = c("aut")),
   person("Preet", "Shihn", role = c("cph"), comment = "Wired library"),
-  person("Kimberly", "Geswein", role = c("cph"), comment = "GloriaHallelujah font"))
+  person("Kimberly", "Geswein", role = c("cph"), comment = "GloriaHallelujah font"),
+  person("Tim", "Qian", role = c("cph"), comment = "chart.xkcd library"))
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -15,5 +16,6 @@ Imports:
     htmltools,
     shiny,
     rmarkdown,
-    knitr
+    knitr,
+    htmlwidgets
 RoxygenNote: 6.1.1
