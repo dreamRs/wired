@@ -1,0 +1,6 @@
+dependencies:
+  - name: chart.xkcd
+    version: 1.1
+    src: htmlwidgets/libs
+    script: chart.xkcd.min.js
+#    stylesheet:
