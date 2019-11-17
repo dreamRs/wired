@@ -4,8 +4,7 @@
 \alias{wired_text}
 \title{Wired Text Input}
 \usage{
-wired_text(inputId, label = NULL, placeholder = NULL, value = "",
-  width = NULL)
+wired_text(inputId, label = NULL, placeholder = NULL, value = "", width = NULL)
 }
 \arguments{
 \item{inputId}{The \code{input} slot that will be used to access the value.}

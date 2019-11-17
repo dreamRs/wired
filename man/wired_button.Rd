@@ -4,8 +4,14 @@
 \alias{wired_button}
 \title{Wired Action Button}
 \usage{
-wired_button(inputId, label = NULL, icon = NULL, elevation = 1,
-  width = NULL, ...)
+wired_button(
+  inputId,
+  label = NULL,
+  icon = NULL,
+  elevation = 1,
+  width = NULL,
+  ...
+)
 }
 \arguments{
 \item{inputId}{The \code{input} slot that will be used to access the value.

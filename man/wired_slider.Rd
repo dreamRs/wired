@@ -4,8 +4,16 @@
 \alias{wired_slider}
 \title{Wired Slider}
 \usage{
-wired_slider(inputId, label = NULL, value = 10, min = 0, max = 100,
-  step = 1, radius = 20, width = NULL)
+wired_slider(
+  inputId,
+  label = NULL,
+  value = 10,
+  min = 0,
+  max = 100,
+  step = 1,
+  radius = 20,
+  width = NULL
+)
 }
 \arguments{
 \item{inputId}{The \code{input} slot that will be used to access the value.}

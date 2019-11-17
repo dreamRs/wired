@@ -4,8 +4,13 @@
 \alias{wired_search}
 \title{Wired Search Input}
 \usage{
-wired_search(inputId, label = NULL, placeholder = NULL, value = "",
-  width = NULL)
+wired_search(
+  inputId,
+  label = NULL,
+  placeholder = NULL,
+  value = "",
+  width = NULL
+)
 }
 \arguments{
 \item{inputId}{The \code{input} slot that will be used to access the value.}

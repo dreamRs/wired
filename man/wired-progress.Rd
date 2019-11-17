@@ -6,11 +6,16 @@
 \alias{update_wired_progress}
 \title{Wired Progress bar}
 \usage{
-wired_progress(id, value, min = 0, max = 100, percentage = TRUE,
-  width = "100\%")
+wired_progress(
+  id,
+  value,
+  min = 0,
+  max = 100,
+  percentage = TRUE,
+  width = "100\%"
+)
 
-update_wired_progress(id, value,
-  session = shiny::getDefaultReactiveDomain())
+update_wired_progress(id, value, session = shiny::getDefaultReactiveDomain())
 }
 \arguments{
 \item{id}{Id for the progress bar.}

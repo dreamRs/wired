@@ -4,8 +4,7 @@
 \alias{wired_card}
 \title{Wired Card}
 \usage{
-wired_card(..., elevation = 2, fill = NULL, padding = 10,
-  width = NULL)
+wired_card(..., elevation = 2, fill = NULL, padding = 10, width = NULL)
 }
 \arguments{
 \item{...}{UI objects to be contained in the card.}
