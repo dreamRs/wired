@@ -18,7 +18,7 @@ be converted with \code{as.data.frame}.}
 \item{type}{Type of chart : line, scatter, bar, pie or radar.}
 }
 \value{
-an htmlwidget object.
+an \code{xkcd} htmlwidget object.
 }
 \description{
 Htmlwidget for Chart.xkcd (\url{https://timqian.com/chart.xkcd})

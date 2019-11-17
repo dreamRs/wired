@@ -4,8 +4,13 @@
 \alias{xkcd_chart}
 \title{Raw API to use chart.xkcd JavaScript library}
 \usage{
-xkcd_chart(config, type = c("line", "scatter", "bar", "pie", "radar"),
-  width = NULL, height = NULL, elementId = NULL)
+xkcd_chart(
+  config,
+  type = c("line", "scatter", "bar", "pie", "radar"),
+  width = NULL,
+  height = NULL,
+  elementId = NULL
+)
 }
 \arguments{
 \item{config}{A \code{list} of parameter to define chart options.}

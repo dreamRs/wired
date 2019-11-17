@@ -11,7 +11,7 @@
 #' @param group A grouping variable, same specification than \code{x} or \code{y}.
 #' @param type Type of chart : line, scatter, bar, pie or radar.
 #'
-#' @return an htmlwidget object.
+#' @return an \code{xkcd} htmlwidget object.
 #' @export
 #'
 #' @example examples/xkcd.R

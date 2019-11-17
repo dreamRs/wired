@@ -18,5 +18,6 @@ Imports:
     shiny,
     rmarkdown,
     knitr,
-    htmlwidgets
-RoxygenNote: 6.1.1
+    htmlwidgets,
+    magrittr
+RoxygenNote: 7.0.0
