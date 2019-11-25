@@ -6,7 +6,7 @@
 #' @param x The text for the x-axis title.
 #' @param y The text for the y-axis title.
 #'
-#' @return an \code{xkcd} htmlwidget object.
+#' @return an \code{\link{xkcd}} htmlwidget object.
 #' @export
 #'
 #' @importFrom utils modifyList

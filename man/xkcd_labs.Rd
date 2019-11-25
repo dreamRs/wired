@@ -16,7 +16,7 @@ xkcd_labs(xkcd, title = NULL, x = NULL, y = NULL)
 \item{y}{The text for the y-axis title.}
 }
 \value{
-an \code{xkcd} htmlwidget object.
+an \code{\link{xkcd}} htmlwidget object.
 }
 \description{
 Add labs to a xkcd chart
