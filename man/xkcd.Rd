@@ -60,9 +60,17 @@ xkcd(
 # Bar chart
 dat <- data.frame(
   x = c("sketchy", "cartoony", "hand-drawn"),
-  y = runif(3, 10, 90)
+  y = floor(runif(3, 10, 90))
 )
 xkcd(x = ~x, y = ~y, data = dat, type = "bar")
+
+# StackedBar chart
+dat <- data.frame(
+  x = rep(c("sketchy", "cartoony", "hand-drawn"), 2),
+  y = floor(runif(6, 10, 90)),
+  group = rep(c("xkcd", "chart"), each = 3)
+)
+xkcd(x = ~x, y = ~y, group = ~group, data = dat, type = "bar")
 
 
 # Pie chart

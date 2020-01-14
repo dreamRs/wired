@@ -6,7 +6,7 @@
 \usage{
 xkcd_chart(
   config,
-  type = c("line", "scatter", "bar", "pie", "radar"),
+  type = c("line", "scatter", "bar", "pie", "radar", "stackedBar"),
   width = NULL,
   height = NULL,
   elementId = NULL

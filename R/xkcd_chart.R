@@ -12,7 +12,7 @@
 #' @export
 #'
 #' @example examples/xkcd_chart.R
-xkcd_chart <- function(config, type = c("line", "scatter", "bar", "pie", "radar"),
+xkcd_chart <- function(config, type = c("line", "scatter", "bar", "pie", "radar", "stackedBar"),
                        width = NULL, height = NULL, elementId = NULL) {
 
   type <- match.arg(type)
@@ -22,7 +22,8 @@ xkcd_chart <- function(config, type = c("line", "scatter", "bar", "pie", "radar"
     "scatter" = "XY",
     "bar" = "Bar",
     "pie" = "Pie",
-    "radar" = "Radar"
+    "radar" = "Radar",
+    "stackedBar" = "StackedBar"
   )
 
   x <- list(

@@ -16,12 +16,15 @@
 #'
 #' @example examples/xkcd.R
 xkcd <- function(x, y, data = NULL, group = NULL, type = "line") {
+  type <- match.arg(type, choices = c("line", "scatter", "bar", "pie", "radar", "stackedBar"))
   if (!is.null(data))
     data <- as.data.frame(data)
   x <- get_var(x, data)
   lab_y <- deparse(substitute(y))
   y <- get_var(y, data)
   group <- get_var(group, data)
+  if (!is.null(group) & identical(type, "bar"))
+    type <- "stackedBar"
   if (is.null(group))
     group <- rep_len(lab_y, length(y))
   if (identical(type, "scatter")) {
